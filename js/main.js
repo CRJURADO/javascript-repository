@@ -1,7 +1,21 @@
-let drinkName;
-let drinkSize;
+class Producto{
+    constructor(name, price, size){
+        this.name = name;
+        this.price = parseFloat(price);
+        this.size = parseInt(size);
+    }
 
-let foodName;
+    totalPrice(quantity) {
+    
+        totPrice = parseFloat(this.price) * parseInt(quantity);
+        return totPrice;
+    
+    }
+}
+
+
+let name1;
+let drinkSize;
 let foodSize;
 
 let price;
@@ -15,8 +29,10 @@ viewMenu(entryMenu);
 if (entryMenu <= 2 && entryMenu > 0) {
     pickSize(entryMenu);
     setQty();
-    alert(price + " " + quantity);
+    const producto1 = new Producto(name1, parseFloat(price), parseInt(size));
+    alert(producto1.name + producto1.price);
     alert("Por favor presione aceptar para ingresar a su carrito de compras y pagar");
+    producto1.totalPrice(quantity);
     alert("Por favor ingrese su pago de " + totPrice);
 }else{
     viewMenu(entryMenu);
@@ -32,15 +48,15 @@ function viewMenu(option) {
         case 1:
             
             alert("Ingresando al menu de Bebidas");
-            drinkName = prompt("Por favor indique el numero de la bebida que desea. 1.Agua 2.Gaseosa 3.Cerveza 4.Mojito 5.Vino");
-            return drinkName;
+            name1 = prompt("Por favor indique el nombre de la bebida que desea. 1.Agua 2.Gaseosa 3.Cerveza 4.Mojito 5.Vino");
+            return name1;
             break;
     
         case 2:
         
             alert("Ingresando al menu de Comidas");
-            foodName = prompt("Por favor indique el numero de comida que desea 1.HAmburguesa completa con papas 2.Papas con cheddar 3.Nachos con cheddar y guacamole");
-            return foodName;
+            name1 = prompt("Por favor indique el nombre de comida que desea 1.Hamburguesa completa con papas 2.Papas con cheddar 3.Nachos con cheddar y guacamole");
+            return name1;
             break;
 
         default:
@@ -53,12 +69,12 @@ function pickSize(option) {
 
     if (option == 1) {
         
-        drinkSize = prompt("Por favor ingrese el numero indicador del tamaño 1.250ml 2.500ml 3.1L");
-        drinkSize = parseInt(drinkSize);
-        switch (drinkSize) {
+        size = prompt("Por favor ingrese el numero indicador del tamaño 1.250ml 2.500ml 3.1L");
+        size = parseInt(size);
+        switch (size) {
             case 1:
                 
-                price = 400;
+                price = 400.05;
                 return price;
                 break;
         
@@ -73,13 +89,13 @@ function pickSize(option) {
                 return price;
                 break;
         }
-        return drinkSize;
+        return size;
         
     }else if (option == 2) {
         
-        foodSize = prompt("Por favor ingrese el numero indicador del tamaño 1.Pequeño 2.Mediano 3.Grande");
-        foodSize = parseInt(foodSize);
-        switch (foodSize) {
+        size = prompt("Por favor ingrese el numero indicador del tamaño 1.Pequeño 2.Mediano 3.Grande");
+        size = parseInt(size);
+        switch (size) {
             case 1:
                 
                 price = 500;
@@ -97,7 +113,7 @@ function pickSize(option) {
                 return price;
                 break;
         }
-        return foodSize;
+        return size;
     }
     
 }
@@ -107,12 +123,5 @@ function setQty() {
     quantity = prompt("Por favor ingrese la cantidad de unidades a comprar");
     return quantity;
     
-} 
-
-function totalPrice(price, quantity) {
-    
-    totPrice = parseInt(price) * parseInt(quantity);
-    return totPrice;
-
 }
 
