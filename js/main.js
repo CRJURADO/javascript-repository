@@ -22,6 +22,8 @@ let price;
 let quantity;
 let totPrice;
 
+const drinkArray = ["Agua", "Gaseosa", "Cerveza", "Mojito", "Vino"];
+const foodArray = ["Hamburguesa completa con papas", "Papas con cheddar", "Nachos con cheddar"];
 let entryMenu = 0;
 entryMenu = prompt("Ingrese el numero indicado para ingresar al menu que quiere ver 1.Bebidas 2.Comidas");
 viewMenu(entryMenu);
@@ -38,24 +40,20 @@ if (entryMenu <= 2 && entryMenu > 0) {
     viewMenu(entryMenu);
 }
 
-
-
-
-
 function viewMenu(option) {
     option = parseInt(option);
     switch (option) {
         case 1:
             
             alert("Ingresando al menu de Bebidas");
-            name1 = prompt("Por favor indique el nombre de la bebida que desea. 1.Agua 2.Gaseosa 3.Cerveza 4.Mojito 5.Vino");
+            name1 = prompt("Por favor indique el nombre de la bebida que desea.  " + drinkArray.toString());
             return name1;
             break;
     
         case 2:
         
             alert("Ingresando al menu de Comidas");
-            name1 = prompt("Por favor indique el nombre de comida que desea 1.Hamburguesa completa con papas 2.Papas con cheddar 3.Nachos con cheddar y guacamole");
+            name1 = prompt("Por favor indique el nombre de comida que desea  " + foodArray.toString());
             return name1;
             break;
 
