@@ -1,164 +1,77 @@
-//Armado de objeto con su metodo que sirve de funcion principal de la aplicacion
-class Producto{
-    constructor(name, price, size){
-        this.name = name;
-        this.price = price;
-        this.size = size;
-    }
+const productos = [{id:1, nombre:'Agua', descripcion:'Botella de 500ml', precio:'120'},
+                   {id:2, nombre:'Gaseosa', descripcion:'Botella de 500ml', precio:'220'},
+                   {id:3, nombre:'Cerveza', descripcion:'Patagonia lager porron ', precio:'290'},
+                   {id:4, nombre:'Mojito', descripcion:'Ingredientes Ron, lima, azucar y menta en un vaso largo', precio:'560'},
+                   {id:5, nombre:'Papas FullDeveloper', descripcion:'Papas con cheddar, bacon, salchichas, 2 huevo fritos y cebolla de verdeo', precio:'868'},
+                   {id:6, nombre:'Hamburguesa h4', descripcion:'Simple con doble cheddar, viene con papas fritas', precio:'790'}];
 
-    totalPrice(quantity) {
+//Funcion para mostrar el menu
+const mostrarMenu = () => {
+for (const producto of productos){
+    let contenedor = document.createElement("div");
+    contenedor.className = "col-sm-4 my-4";
+    contenedor.innerHTML = 
+    `
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">${producto.nombre}</h5>
+                <p class="card-text">${producto.descripcion}</p>
+                <p class="card-text"><strong>$ ${producto.precio}</strong></p>
+                <a href="#" class="btn btn-primary" onclick=prodElegidos(${producto.id})>Comprar</a>
+            </div>
+        </div>
+             
+    `
+    document.getElementById('fila').appendChild(contenedor);
     
-        totPrice = parseFloat(this.price) * parseInt(quantity);
-        return totPrice;
-    
-    }
+}
 }
 
-//Variables globales
-let name1;
-let price;
-let size;
-let quantity;
-let totPrice;
-let entryMenu;
-
-//Primer llamado de la aplicacion
-entryMenu = prompt("Ingrese el numero indicado para ingresar al menu que quiere ver 1.Bebidas 2.Comidas");
-viewMenu(entryMenu);
-
-//Ingreso al funcionamiento gral
-if (entryMenu <= 2 && entryMenu > 0) {
-
-    pickSize(entryMenu); //eleccion de tamaño
-    setQty();//Eleccion de cantidad
-    alert(name1 + price);//Aviso de nombre y precio del producto unitario
-    //Creacion del objeto producto
-    const producto1 = new Producto(name1, price, size);
-    alert(producto1.name + producto1.price);
-    //Calculo del total de la compra y se muestra al usuario con un alert
-    alert("Por favor presione aceptar para ingresar a su carrito de compras y pagar");
-    producto1.totalPrice(quantity);
-    alert("Por favor ingrese su pago de " + totPrice);
-}else{
-    viewMenu(entryMenu);
+//Funcion para incrementar el numero de productos en el carrito
+const prodElegidos = (idProducto) => {
+    console.log(idProducto);
+    var elemento = document.getElementById('contItm');
+    var cantidad = parseFloat(elemento.innerHTML) + 1;
+    elemento.innerHTML = cantidad;
+    agregarProd(idProducto);
 }
 
-//Funciones utilizadas en la aplicacion
-function viewMenu(option) {
-    option = parseInt(option);
-    switch (option) {
-        case 1:
-            
-            //Variables locales
-            const drinkArray = ["Agua", "Gaseosa", "Cerveza", "Mojito", "Vino"];
-            const productosDrinks = [{name: "Agua" , price: 250, size: 1},
-                                     {name: "Mojito" , price: 450, size: 1},
-                                     {name: "Gaseosa" , price: 325, size: 1},
-                                     {name: "Vino" , price: 470, size: 1},
-                                     {name: "Cerveza" , price: 400, size: 1}
-                                    ];
 
-            alert("Ingresando al menu de Bebidas");
-            
-            let seePrices = prompt("Elija el numero que indique si quiere ver la lista de precios de 1.mas barato a mas caro o 2.de mas caro a mas barato");
-            arrangePrices(seePrices, productosDrinks);
-            alert(JSON.stringify(productosDrinks, "", 2));
-            
-            name1 = prompt("Por favor indique el nombre de la bebida que desea.  " + drinkArray.toString());
-            return name1;
-            break;
+//array para contener los productos elegidos
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+//Funcion para agregar productos al carrito
+const agregarProd = (idProducto) => {
+    //buscar en el arreglo de productos el producto que compro
+    let productoComprado = productos.find(x=>x.id ==idProducto);
+    carrito.push(productoComprado);
+    localStorage.setItem('carrito',JSON.stringify(carrito));
+    alert(`${productoComprado.nombre} se ha agregado correctamente al carrito`);
+}
+
+const verCarrito = () => {
+    //dibuje un un div todos los productos
+    let compras = JSON.parse(localStorage.getItem('carrito'));
+    let totalPrecio = 0;
+    let contPrecio = document.createElement("h2");
     
-        case 2:
-            
-            //Variables locales
-            const foodArray = ["Hamburguesa completa con papas", "Papas con cheddar", "Nachos con cheddar"];
-            const productosFoods =  [{name: "Hamburguesa completa con papas", price: 550, size: 1},
-                                     {name: "Papas con cheddar", price: 500, size: 1},
-                                     {name: "Nachos con cheddar", price: 470, size: 1}];
+    for (const prod of compras){
+        let contenedor = document.createElement("li");
+        contenedor.className = "list-group-item d-flex justify-content-between align-items-center";
+        contenedor.innerHTML = 
+        `
+            ${prod.nombre}
+            <span class="badge bg-primary rounded-pill">$ ${prod.precio}</span>
 
-            alert("Ingresando al menu de Comidas");
-            
-            let seePrices = prompt("Elija el numero que indique si quiere ver la lista de precios de 1.mas barato a mas caro o 2.de mas caro a mas barato");
-            arrangePrices(seePrices, productosFoods);
-            alert(JSON.stringify(productosFoods, "", 2));
-            
-            name1 = prompt("Por favor indique el nombre de comida que desea  " + foodArray.toString());
-            return name1;
-            break;
-
-        default:
-            alert("Ingreso un numero de menu incorrecto");
-            break;
-    }
-}
-
-function pickSize(option) {
-
-    if (option == 1) {
+        `
+        totalPrecio += +prod.precio;
         
-        size = prompt("Por favor ingrese el numero indicador del tamaño 1.250ml 2.500ml 3.1L");
-        size = parseInt(size);
-        switch (size) {
-            case 1:
-                
-                price = 400.05;
-                return price;
-                break;
-        
-            case 2:
-
-                price = 550;
-                return price;
-                break;
-            
-            case 3:
-                price = 670;
-                return price;
-                break;
-        }
-        return size;
-        
-    }else if (option == 2) {
-        
-        let size = prompt("Por favor ingrese el numero indicador del tamaño 1.Pequeño 2.Mediano 3.Grande");
-        size = parseInt(size);
-        switch (size) {
-            case 1:
-                
-                price = 500;
-                return price;
-                break;
-        
-            case 2:
-
-                price = 650;
-                return price;
-                break;
-            
-            case 3:
-                price = 770;
-                return price;
-                break;
-        }
-        return size;
+        document.getElementById('listaCarrito').appendChild(contenedor);
     }
-    
+    contPrecio.innerHTML =
+    `
+        Total $ ${totalPrecio}
+    `
+    document.getElementById('total').appendChild(contPrecio);
 }
-
-function setQty() {
-
-    quantity = prompt("Por favor ingrese la cantidad de unidades a comprar");
-    return quantity;
-    
-}
-
-function arrangePrices(seePrices, products) {
-    
-    if (seePrices == 1) {
-        products.sort((a, b) => a.price - b.price);
-    }else{
-        products.sort((a, b) => b.price - a.price );
-    }
-}
-
-
