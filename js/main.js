@@ -9,22 +9,21 @@ const productos = [{id:1, nombre:'Agua', descripcion:'Botella de 500ml', precio:
 const mostrarMenu = () => {
 
     for (const producto of productos){
-        let contenedor = document.createElement("div");
-        contenedor.className = "col-sm-4 my-4";
-        contenedor.innerHTML = 
-        `
 
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">${producto.nombre}</h5>
-                    <p class="card-text">${producto.descripcion}</p>
-                    <p class="card-text"><strong>$ ${producto.precio}</strong></p>
-                    <a href="#" class="btn btn-primary" onclick=prodElegidos(${producto.id})>Comprar</a>
+        $("#fila").append(`
+
+            <div class="col-sm-4 my-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${producto.nombre}</h5>
+                        <p class="card-text">${producto.descripcion}</p>
+                        <p class="card-text"><strong>$ ${producto.precio}</strong></p>
+                        <a href="#" class="btn btn-primary" onclick=prodElegidos(${producto.id})>Comprar</a>
+                    </div>
                 </div>
             </div>
                 
-        `
-        document.getElementById('fila').appendChild(contenedor);
+        `);
         
     }
 }
@@ -51,54 +50,54 @@ const agregarProd = (idProducto) => {
 }
 
 const verCarrito = () => {
+    debugger;
     //dibuje un un div todos los productos
     let compras = JSON.parse(localStorage.getItem('carrito'));
     let totalPrecio = 0;
-    let contPrecio = document.createElement("h2");
     let contCant = 0;
     
     for (const prod of compras){
-        let contenedor = document.createElement("li");
-        contenedor.className = "list-group-item d-flex justify-content-between align-items-center";
-        contenedor.innerHTML = 
-        `
-            <div><h4>${prod.nombre}</h4></div>
-            <span class="badge bg-primary rounded-pill">$ ${prod.precio}</span>
-            <div class="justify-content-end" id="trash-${prod.id}"><span class="trash"><i class="fas fa-trash"></i></span></div>
 
-        `
+        $("#listaCarrito").append(`
+
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div><h4>${prod.nombre}</h4></div>
+                <span class="badge bg-primary rounded-pill">$ ${prod.precio}</span>
+                <div class="justify-content-end" id="trash-${prod.id}"><span class="trash"><i class="fas fa-trash"></i></span></div>
+            </li>
+
+        `);
+
         totalPrecio += +prod.precio;
         contCant += +1;
 
-        //La idea era atrapar el ID de cada elemento y poder borrarlo de la lista pero por algun motivo mi dato llega en null cuando hago el getElemetById
-        const trashItem = document.getElementById(`trash-${prod.id}`); //Aca llega en null, porque podria ser?
-
-        /*trashItem.addEventListener("click", () => {
-        deleteItem(prod.id);
-        });*/ 
+        $(`#trash-${prod.id}`).click(()=> {
+            deleteItem(prod.id);
+            })       
         
-        document.getElementById('listaCarrito').appendChild(contenedor);
     }
 
     var elemento = document.getElementById('contItm');
     var cantidad = parseFloat(elemento.innerHTML) + contCant;
     elemento.innerHTML = cantidad;
 
-    contPrecio.innerHTML =
-    `
-        Total $ ${totalPrecio}
-    `
-    document.getElementById('total').appendChild(contPrecio);
+    $("#total").append(`
+        <h2>
+            Total $ ${totalPrecio}
+        </h2>
+    `);
+
 }
 
 const deleteItem = (id) => {
     const option = confirm(
       "¿Está seguro que quiere eliminar el item seleccionado?"
     );
+    console.log(option);
     if (option) {
-      const newCarr = carritoArr.filter((el) => el.id !== id);
-      carritoArr = newCarr;
-      localStorage.setItem('carrito',JSON.stringify(carritoArr));
-      verCarrito(carritoArr);
+      const newCarr = carrito.filter((el) => el.id !== id);
+      carrito = newCarr;
+      localStorage.setItem('carrito',JSON.stringify(carrito));
+      verCarrito();
     }
   };
