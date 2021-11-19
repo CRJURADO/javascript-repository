@@ -1,0 +1,40 @@
+{
+    "productos": [
+      { 
+        "id": 1,
+        "nombre": "Agua",
+        "descripcion": "Botella de 500ml",
+        "precio": 120
+      },
+      {
+        "id": 2,
+        "nombre": "Gaseosa",
+        "descripcion":"Botella de 500ml",
+        "precio": 225
+      },
+      {
+          "id": 3,
+          "nombre": "Cerveza",
+          "descripcion": "Patagonia lager porron",
+          "precio": 290
+      },
+      {
+          "id": 4,
+          "nombre":"Mojito",
+          "descripcion": "Ingredientes Ron, lima, azucar y menta en un vaso largo",
+          "precio" : 560
+      },
+      {
+          "id": 5,
+          "nombre": "Papas FullDeveloper",
+          "descripcion": "Papas con cheddar, bacon, salchichas, 2 huevo fritos y cebolla de verdeo",
+          "precio" : 790
+      },
+      {
+          "id" : 6,
+          "nombre": "Hamburguesa h4",
+          "descripcion": "Simple con doble cheddar, viene con papas fritas",
+          "precio" : 880
+      }
+    ]
+  }
