@@ -1,40 +1,244 @@
 {
     "productos": [
-      { 
-        "id": 1,
-        "nombre": "Agua",
-        "descripcion": "Botella de 500ml",
-        "precio": 120
-      },
       {
-        "id": 2,
-        "nombre": "Gaseosa",
-        "descripcion":"Botella de 500ml",
-        "precio": 225
-      },
-      {
-          "id": 3,
-          "nombre": "Cerveza",
-          "descripcion": "Patagonia lager porron",
-          "precio": 290
-      },
-      {
-          "id": 4,
-          "nombre":"Mojito",
-          "descripcion": "Ingredientes Ron, lima, azucar y menta en un vaso largo",
-          "precio" : 560
-      },
-      {
-          "id": 5,
-          "nombre": "Papas FullDeveloper",
-          "descripcion": "Papas con cheddar, bacon, salchichas, 2 huevo fritos y cebolla de verdeo",
-          "precio" : 790
-      },
-      {
-          "id" : 6,
-          "nombre": "Hamburguesa h4",
-          "descripcion": "Simple con doble cheddar, viene con papas fritas",
-          "precio" : 880
-      }
-    ]
+      "id":1,
+      "nombre":"strawBr",
+      "descripcion":"Frutillas, soda y Tequila",
+      "subtipo":"Cocktail",
+      "tipo":"Bebida",
+      "precio":520,
+      "cantidad": 1,
+      "img":"img/strawBr.jpg"
+  },
+  {
+      "id":2,
+      "nombre":"frutalGradient",
+      "descripcion":"3 tipos de frutas con vino blanco",
+      "subtipo":"Cocktail",
+      "tipo":"Bebida",
+      "precio":454,
+      "cantidad": 1,
+      "img":"img/frutalGradient.jpg"
+  },
+  {
+      "id":3,
+      "nombre":"citricTransition",
+      "descripcion":"Mix de citricos con vodka",
+      "subtipo":"Cocktail",
+      "tipo":"Bebida",
+      "precio":560,
+      "cantidad": 1,
+      "img":"img/citricTransition.jpg"
+  },
+  {
+      "id":4,
+      "nombre":"trongPink",
+      "descripcion":"70% Vodka 30% pulpa de frutilla",
+      "subtipo":"Cocktail",
+      "tipo":"Bebida",
+      "precio":499,
+      "cantidad": 1,
+      "img":"img/strongPink.jpg"
+  },
+  {
+      "id":5,
+      "nombre":"chocoAwesome",
+      "descripcion":"Salsa de chocolate, Amarula y Tia maria",
+      "subtipo":"Cocktail",
+      "tipo":"Bebida",
+      "precio":620,
+      "cantidad": 1,
+      "img":"img/chocoAwesome.jpg"
+  },
+  {
+      "id":6,
+      "nombre":"coffeBeans",
+      "descripcion":"Licor de Cafe, cafe expreso y whiskey",
+      "subtipo":"Cocktail",
+      "tipo":"Bebida",
+      "precio":605,
+      "cantidad": 1,
+      "img":"img/coffeBeans.jpg"
+  },
+  {
+      "id":7,
+      "nombre":"screwDriver",
+      "descripcion":"Jugo de naranja y vodka",
+      "subtipo":"Cocktail",
+      "tipo":"Bebida",
+      "precio":350,
+      "cantidad": 1,
+      "img":"img/screwDriver.jpg"
+  },
+  {
+      "id":8,
+      "nombre":"blueBackground",
+      "descripcion":"Blue curacao, licor de ananá y tequila",
+      "subtipo":"Cocktail",
+      "tipo":"Bebida",
+      "precio":399,
+      "cantidad": 1,
+      "img":"img/blueBackground.jpg"
+  },
+  {
+      "id":9,
+      "nombre":"displayOrange",
+      "descripcion":"Ron y Jugo de naranja",
+      "subtipo":"Cocktail",
+      "tipo":"Bebida",
+      "precio":510,
+      "cantidad": 1,
+      "img":"img/displayOrange.jpg"
+  },
+  {
+      "id":10,
+      "nombre":"burguerH1",
+      "descripcion":"Hamburguesa cuadruple con queso, acompañado de papas fritas",
+      "subtipo":"Cocktail",
+      "tipo":"Comida",
+      "precio":1200,
+      "cantidad": 1,
+      "img":"img/burguerH1.jpg"
+  },
+  {
+      "id":11,
+      "nombre":"papasJS",
+      "descripcion":"Papas fritas a la provenzal con salsa barbacoa",
+      "subtipo":"Salado",
+      "tipo":"Comida",
+      "precio":1135,
+      "cantidad": 1,
+      "img":"img/papasJS.jpg"
+  },
+  {
+      "id":12,
+      "nombre":"muzzaSticks",
+      "descripcion":"Muzzarelitas fritas con alioli por 6 unidades acompañado con papas fritas",
+      "subtipo":"Salado",
+      "tipo":"Comida",
+      "precio":999,
+      "cantidad": 1,
+      "img":"img/muzzaSticks.jpg"
+  },
+  {
+      "id":13,
+      "nombre":"nestedToast",
+      "descripcion":"Tostada francesa con jamón crudo, albahaca y huevo frito",
+      "subtipo":"Salado",
+      "tipo":"Comida",
+      "precio":375,
+      "cantidad": 1,
+      "img":"img/nestedToast.jpg"
+  },
+  {
+      "id":14,
+      "nombre":"pizzaMVC",
+      "descripcion":"Pizza con muzzarela, panceta y albahaca con doble salsa de tomate",
+      "subtipo":"Salado",
+      "tipo":"Comida",
+      "precio":1300,
+      "cantidad": 1,
+      "img":"img/pizzaMVC.jpg"
+  },
+  {
+      "id":15,
+      "nombre":"burguerH4",
+      "descripcion":"Hamburguesa doble carne con queso cheddar, tomate, lechuga y cebolla",
+      "subtipo":"Salado",
+      "tipo":"Comida",
+      "precio":1288,
+      "cantidad": 1,
+      "img":"img/burguerH4.jpg"
+  },
+  {
+      "id":16,
+      "nombre":"chickenSandwich",
+      "descripcion":"Sandwich de pollo frito y muzzarela acompañado con batatas fritas",
+      "subtipo":"Salado",
+      "tipo":"Comida",
+      "precio":1300,
+      "cantidad": 1,
+      "img":"img/chickenSandwich.jpg"
+  },
+  {
+      "id":17,
+      "nombre":"burguerH3",
+      "descripcion":"Hamburguesa doble con cheddar y cebolla caramelizada acompañado con papas fritas",
+      "subtipo":"Salado",
+      "tipo":"Comida",
+      "precio":1105,
+      "cantidad": 1,
+      "img":"img/burguerH3.jpg"
+  },
+  {
+      "id":18,
+      "nombre":"chiliSchrimpsSdw",
+      "descripcion":"Sandwich de camarones con picante acompañado con batatas fritas",
+      "subtipo":"Salado",
+      "tipo":"Comida",
+      "precio":1700,
+      "cantidad": 1,
+      "img":"img/chiliSchrimpsSdw.jpg"
+  },
+  {
+      "id":19,
+      "nombre":"chesseCakeStr",
+      "descripcion":"Porción de chessecake de frutillas",
+      "subtipo":"Dulce",
+      "tipo":"Comida",
+      "precio":890,
+      "cantidad": 1,
+      "img":"img/chesseCakeStr.jpg"
+  },
+  {
+      "id":20,
+      "nombre":"brownieArray",
+      "descripcion":"Brownies extra chocolate con almendras",
+      "subtipo":"Dulce",
+      "tipo":"Comida",
+      "precio":905,
+      "cantidad": 1,
+      "img":"img/brownieArray.jpg"
+  },
+  {
+      "id":21,
+      "nombre":"superMacarons",
+      "descripcion":"Macarrones extra grandes",
+      "subtipo":"Dulce",
+      "tipo":"Comida",
+      "precio":120,
+      "cantidad": 1,
+      "img":"img/superMacarons.jpg"
+  },
+  {
+      "id":22,
+      "nombre":"botellaAgua",
+      "descripcion":"Botella de 500ml",
+      "subtipo":"Sin Alcohol",
+      "tipo":"Bebida",
+      "precio":100,
+      "cantidad": 1,
+      "img":"img/botellaAgua.jpg"
+  },
+  {
+      "id":23,
+      "nombre":"gaseosaCola",
+      "descripcion":"botella de 500ml",
+      "subtipo":"Sin Alcohol",
+      "tipo":"Bebida",
+      "precio":150,
+      "cantidad": 1,
+      "img":"img/gaseosaCola.jpg"
+  },
+  {
+      "id":24,
+      "nombre":"LicuadoFrutal",
+      "descripcion":"Vaso de trago largo de licuado de frutas",
+      "subtipo":"Sin Alcohol",
+      "tipo":"Bebida",
+      "precio":210,
+      "cantidad": 1,
+      "img":"img/LicuadoFrutal.jpg"
+  }
+  ]
   }

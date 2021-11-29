@@ -23,6 +23,8 @@ $.get( "./js/productos.json", data => {
             <div class="col-sm-4 my-4">
                 <div class="card">
                     <div class="card-body">
+                        <img src=${producto.img} alt="" class="card-img-top">
+                        <hr>
                         <h5 class="card-title">${producto.nombre}</h5>
                         <p class="card-text">${producto.descripcion}</p>
                         <p class="card-text"><strong>$ ${producto.precio}</strong></p>
@@ -38,9 +40,16 @@ $.get( "./js/productos.json", data => {
 
     //Funcion para agregar productos al carrito
     const agregarProd = (idProducto) => {
-        //buscar en el arreglo de productos el producto que compro
-        let productoComprado = data.productos.find(x=>x.id ==idProducto);
-        carrito.push(productoComprado);
+
+        const index = carrito.findIndex(item => item.id === idProducto);
+
+        if (index > -1) {
+          carrito[index].cantidad += 1;
+        } else {
+            let productoComprado = data.productos.find(x=>x.id ==idProducto);
+            carrito.push(productoComprado);
+        }
+
         localStorage.setItem('carrito',JSON.stringify(carrito));
     }
     

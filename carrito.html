@@ -36,9 +36,17 @@
         </div>
     </nav>
     <div class="container">
-        <ul class="list-group" id="listaCarrito">
-
-        </ul>
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Producto</th>
+              <th class="text-center" scope="col">Cantidad</th>
+              <th class="text-center" scope="col">Precio Unitario</th>
+              <th class="text-center" scope="col">Eliminar</th>
+            </tr>
+          <tbody id="listaCarrito">
+          </tbody>
+        </table>
     </div>
 
     <div class="container text-end" id="total">
@@ -51,6 +59,11 @@
           crossorigin="anonymous">
     </script>
     <script src="js/carrito.js">  </script>
+    <script>
+            verCarrito();
+            contProd();
+            contPrec();
+    </script>
     
 </body>
 </html>
